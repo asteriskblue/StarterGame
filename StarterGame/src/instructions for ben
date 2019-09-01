@@ -1,0 +1,29 @@
+1) Create a new game
+-	link to it from the title screen
+-	set up character movement with key bindings
+-	set up collision if you need it
+-	basically- copy the first game
+
+2) Create a computer player for the first game
+-	make a computer class
+-	extend from the object class
+-	make two instance variables, the coordinates of the treasure
+-	overwrite move() from the object class and make the computer
+	move to the treasure. it should look like:
+		
+		public void move(){
+			<calculate best dx and dy>
+			super.move();
+		}
+		
+-	remove the second player from the game class, stick in a
+	computer object instead, and update the move/draw/collision
+	methods to reflect the change		
+-   in the relocate() method, update the computer's treasure
+	coordinates whenever you relocate the treasure
+	
+3) In the first game, make a toggle between 1P and 2P
+-	have a boolean variable that decides whether its 1P or 2P
+-	set up a key that, on release, switches the boolean
+-	if the boolean is true, handle the game as 2P
+-	if the boolean is false, handle the game as 1P
