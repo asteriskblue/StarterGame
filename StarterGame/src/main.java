@@ -22,6 +22,7 @@ public class main extends JPanel implements ActionListener {
 	title t;
 	map m;
 	map1 m1; 
+	map2 m2;
 
 	public main() {
 		addKeyListener(new KAdapter());
@@ -40,6 +41,7 @@ public class main extends JPanel implements ActionListener {
 		t = new title();
 		m = new map();
 		m1 = new map1();
+		m2 = new map2();
 	}
 
 	public void paintComponent(Graphics g) {
@@ -53,6 +55,7 @@ public class main extends JPanel implements ActionListener {
 		if(state == "title") t.draw(g);
 		if(state == "map") m.draw(g);
 		if(state == "map1") m1.draw(g);
+		if(state == "map2") m2.draw(g);
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -60,6 +63,7 @@ public class main extends JPanel implements ActionListener {
 		if(state == "title") t.move();
 		if(state == "map") m.move();
 		if(state == "map1") m1.move();
+		if(state == "map2") m2.move();
 		
 		repaint();
 	}
@@ -96,6 +100,18 @@ public class main extends JPanel implements ActionListener {
 				if(key == KeyEvent.VK_RIGHT) m1.p2.dx = 3;
 			}
 			
+			if(state == "map2") {
+				if(key == KeyEvent.VK_W) m2.p1.dy = -3;
+				if(key == KeyEvent.VK_A) m2.p1.dx = -3;
+				if(key == KeyEvent.VK_S) m2.p1.dy = 3;
+				if(key == KeyEvent.VK_D) m2.p1.dx = 3;
+				
+				if(key == KeyEvent.VK_UP) m2.c.dy = -3;
+				if(key == KeyEvent.VK_LEFT) m2.c.dx = -3;
+				if(key == KeyEvent.VK_DOWN) m2.c.dy = 3;
+				if(key == KeyEvent.VK_RIGHT) m2.c.dx = 3;
+			}
+			
 		}
 
 		public void keyReleased(KeyEvent e) {
@@ -104,6 +120,7 @@ public class main extends JPanel implements ActionListener {
 			if(state == "title") {
 				if(key == KeyEvent.VK_SPACE) state = "map";
 				if(key == KeyEvent.VK_SHIFT) state = "map1";
+				if(key == KeyEvent.VK_Z) state = "map2";
 			}
 			
 			if(state == "map") {
@@ -132,6 +149,20 @@ public class main extends JPanel implements ActionListener {
 				if(key == KeyEvent.VK_LEFT) m1.p2.dx = 0;
 				if(key == KeyEvent.VK_DOWN) m1.p2.dy = 0;
 				if(key == KeyEvent.VK_RIGHT) m1.p2.dx = 0;
+			}
+			
+			if(state == "map2") {
+				if(key == KeyEvent.VK_R) state = "title";
+				
+				if(key == KeyEvent.VK_W) m2.p1.dy = 0;
+				if(key == KeyEvent.VK_A) m2.p1.dx = 0;
+				if(key == KeyEvent.VK_S) m2.p1.dy = 0;
+				if(key == KeyEvent.VK_D) m2.p1.dx = 0;
+				
+				if(key == KeyEvent.VK_UP) m2.c.dy = 0;
+				if(key == KeyEvent.VK_LEFT) m2.c.dx = 0;
+				if(key == KeyEvent.VK_DOWN) m2.c.dy = 0;
+				if(key == KeyEvent.VK_RIGHT) m2.c.dx = 0;
 			}
 			
 		}
