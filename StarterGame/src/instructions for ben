@@ -1,29 +1,22 @@
-1) Create a new game
--	link to it from the title screen
--	set up character movement with key bindings
--	set up collision if you need it
--	basically- copy the first game
+Explanation of computer logic.
 
-2) Create a computer player for the first game
--	make a computer class
--	extend from the object class
--	make two instance variables, the coordinates of the treasure
--	overwrite move() from the object class and make the computer
-	move to the treasure. it should look like:
-		
-		public void move(){
-			<calculate best dx and dy>
-			super.move();
-		}
-		
--	remove the second player from the game class, stick in a
-	computer object instead, and update the move/draw/collision
-	methods to reflect the change		
--   in the relocate() method, update the computer's treasure
-	coordinates whenever you relocate the treasure
+The game updates every 10 milliseconds. Each time, the move() function of each player is called.
+Objects move according to their dx and dy (delta x and delta y). Human players set these values with key presses.
+Computer players set these values with their own special calculations.
+
+By rewriting the computer class' move() function, we can have the computer players calculate the proper dx and dy.
+Since computer players keep track of the treasure location with tx and ty, they know where to move.
+If they need to move right, they move right. If they need to move up, they move up.
+
+This is how it all happens. When the handler's (map2's) move() function is called...
+
+	human player's move() is called
+	dx and dy are already set by button presses (or lack of)
+	dx and dy are added to x and y
 	
-3) In the first game, make a toggle between 1P and 2P
--	have a boolean variable that decides whether its 1P or 2P
--	set up a key that, on release, switches the boolean
--	if the boolean is true, handle the game as 2P
--	if the boolean is false, handle the game as 1P
+	computer player's move() is called
+	dx and dy are decided according to the computer players position relative to the treasure
+	dx and dy are added to x and y
+	
+As you can see, both players are constantly moving at the same time with the same speed.
+Everything is dependent on those two values, dx and dy, that make things move.
