@@ -2,9 +2,9 @@ Explanation of computer logic.
 
 The game updates every 10 milliseconds. Each time, the move() function of each player is called.
 Objects move according to their dx and dy (delta x and delta y). Human players set these values with key presses.
-Computer players set these values with their own special calculations.
+Computer players set these values according to their position relative to the treasure
 
-By rewriting the computer class' move() function, we can have the computer players calculate the proper dx and dy.
+By rewriting the computer class' move() function, we can have the computer players move in the right direction.
 Since computer players keep track of the treasure location with tx and ty, they know where to move.
 If they need to move right, they move right. If they need to move up, they move up.
 
