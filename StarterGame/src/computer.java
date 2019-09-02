@@ -21,7 +21,7 @@ public class computer extends object{
 		// same thing but for vertical movement
 		if(ty > y) dy = 2;
 		elif(ty < y) dy = -2;
-		else dy = 0
+		else dy = 0;
 			
 		// remember, the old move method adds dx and dy to the current coordinates
 		// we just set the dx and dy and the computer moves just like a player would
