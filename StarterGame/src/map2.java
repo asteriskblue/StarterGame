@@ -20,6 +20,9 @@ public class map2 {
 		
 		s1 = 0;
 		s2 = 0;
+		
+		// relocate the treasure immediately
+		relocate();
 	}
 	
 	public void draw(Graphics g) {
@@ -36,7 +39,9 @@ public class map2 {
 	public void move() {
 		
 		p1.move();
-		c.chase(t.x, t.y);
+		// the computer moves just like the player but...
+		// their move function is sligthly different!
+		c.move();
 		
 		collision();
 	}
@@ -46,6 +51,8 @@ public class map2 {
 		int ny = (int)(Math.random() * 480);
 		
 		t.x = nx; t.y = ny;
+		// updated the computer's treasure coordinates
+		c.tx = nx; c.ty = ny;
 	}
 	
 	public void collision() {
