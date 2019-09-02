@@ -21,6 +21,7 @@ public class main extends JPanel implements ActionListener {
 	
 	title t;
 	map m;
+	map1 m1; 
 
 	public main() {
 		addKeyListener(new KAdapter());
@@ -38,6 +39,7 @@ public class main extends JPanel implements ActionListener {
 		
 		t = new title();
 		m = new map();
+		m1 = new map1();
 	}
 
 	public void paintComponent(Graphics g) {
@@ -50,12 +52,14 @@ public class main extends JPanel implements ActionListener {
 	private void doDrawing(Graphics g) {
 		if(state == "title") t.draw(g);
 		if(state == "map") m.draw(g);
+		if(state == "map1") m1.draw(g);
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		
 		if(state == "title") t.move();
 		if(state == "map") m.move();
+		if(state == "map1") m1.move();
 		
 		repaint();
 	}
@@ -79,6 +83,19 @@ public class main extends JPanel implements ActionListener {
 				if(key == KeyEvent.VK_DOWN) m.p2.dy = 3;
 				if(key == KeyEvent.VK_RIGHT) m.p2.dx = 3;
 			}
+			
+			if(state == "map1") {
+				if(key == KeyEvent.VK_W) m1.p1.dy = -3;
+				if(key == KeyEvent.VK_A) m1.p1.dx = -3;
+				if(key == KeyEvent.VK_S) m1.p1.dy = 3;
+				if(key == KeyEvent.VK_D) m1.p1.dx = 3;
+				
+				if(key == KeyEvent.VK_UP) m1.p2.dy = -3;
+				if(key == KeyEvent.VK_LEFT) m1.p2.dx = -3;
+				if(key == KeyEvent.VK_DOWN) m1.p2.dy = 3;
+				if(key == KeyEvent.VK_RIGHT) m1.p2.dx = 3;
+			}
+			
 		}
 
 		public void keyReleased(KeyEvent e) {
@@ -86,6 +103,7 @@ public class main extends JPanel implements ActionListener {
 			
 			if(state == "title") {
 				if(key == KeyEvent.VK_SPACE) state = "map";
+				if(key == KeyEvent.VK_SHIFT) state = "map1";
 			}
 			
 			if(state == "map") {
@@ -100,6 +118,20 @@ public class main extends JPanel implements ActionListener {
 				if(key == KeyEvent.VK_LEFT) m.p2.dx = 0;
 				if(key == KeyEvent.VK_DOWN) m.p2.dy = 0;
 				if(key == KeyEvent.VK_RIGHT) m.p2.dx = 0;
+			}
+			
+			if(state == "map1") {
+				if(key == KeyEvent.VK_R) state = "title";
+				
+				if(key == KeyEvent.VK_W) m1.p1.dy = 0;
+				if(key == KeyEvent.VK_A) m1.p1.dx = 0;
+				if(key == KeyEvent.VK_S) m1.p1.dy = 0;
+				if(key == KeyEvent.VK_D) m1.p1.dx = 0;
+				
+				if(key == KeyEvent.VK_UP) m1.p2.dy = 0;
+				if(key == KeyEvent.VK_LEFT) m1.p2.dx = 0;
+				if(key == KeyEvent.VK_DOWN) m1.p2.dy = 0;
+				if(key == KeyEvent.VK_RIGHT) m1.p2.dx = 0;
 			}
 			
 		}

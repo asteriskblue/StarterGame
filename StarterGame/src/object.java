@@ -25,13 +25,21 @@ public class object {
 	public void move() {
 		x += dx; y += dy;
 	}
-	
+
 	public Rectangle getHitBox() {
 		return new Rectangle(x, y, w, h);
 	}
 	
 	public Rectangle getFutureHitBox() {
 		return new Rectangle(x + dx, y + dy, w, h);
+	}
+	
+	public int xPosition() {
+		return x;
+	}
+	
+	public int yPosition() {
+		return y;
 	}
 	
 }
