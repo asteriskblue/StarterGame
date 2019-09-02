@@ -34,12 +34,9 @@ public class object {
 		return new Rectangle(x + dx, y + dy, w, h);
 	}
 	
-	public int xPosition() {
-		return x;
+	public void chase(int a, int b) {
+		dx = a-x;
+		dy = b-y;
+		this.move();
 	}
-	
-	public int yPosition() {
-		return y;
-	}
-	
 }
