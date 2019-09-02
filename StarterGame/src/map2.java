@@ -4,7 +4,7 @@ import java.awt.Graphics;
 public class map2 {
 	
 	object p1;
-	object c;
+	computer c;
 	
 	object t;
 	
@@ -14,7 +14,7 @@ public class map2 {
 	public map2() {
 		
 		this.p1 = new object(100, 100, 20, 20, Color.RED);
-		this.c = new object(300, 100, 20, 20, Color.BLACK);
+		this.c = new computer(300, 100, 20, 20, Color.BLACK);
 		
 		this.t = new object(200, 100, 20, 20, Color.GREEN);
 		
