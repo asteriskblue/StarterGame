@@ -33,10 +33,4 @@ public class object {
 	public Rectangle getFutureHitBox() {
 		return new Rectangle(x + dx, y + dy, w, h);
 	}
-	
-	public void chase(int a, int b) {
-		dx = a-x;
-		dy = b-y;
-		this.move();
-	}
 }
